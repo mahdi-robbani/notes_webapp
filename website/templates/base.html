@@ -17,7 +17,7 @@
             crossorigin="anonymous"
         />
 
-        <!-- Jinga custom block -->
+        <!-- Title block -->
         <title>{% block title %}Home{% endblock %}</title>
     </head>
     <body>
@@ -40,6 +40,12 @@
                 </div>
             </div>
         </nav>
+
+        <!-- Use container for some padding -->
+        <div class="container"> 
+            <!-- Content block-->
+            {% block content %}{% endblock %}
+        </div>
 
         <!-- JS scripts used by Bootsrap (button press animations and stuff) -->
         <script
