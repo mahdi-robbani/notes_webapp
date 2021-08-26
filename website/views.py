@@ -1,5 +1,6 @@
 #URL end points/front end aspects of the website
-from flask import Blueprint # lets us define views in multiple fles
+from flask import Blueprint # lets us define views in multiple files
+from flask import render_template # lets us render HTMLS
 
 views = Blueprint('views', __name__)
 
@@ -7,4 +8,4 @@ views = Blueprint('views', __name__)
 def home():
     """This function will run when we go to the root directory of the
     website"""
-    return "<h1>Test</h1>"
+    return render_template("home.html")
