@@ -1,5 +1,32 @@
 {% extends "base.html" %} 
 {% block title %}Login{% endblock %}
 {% block content %}
-<h1>This is the login page.</h1>
+<form method = "POST">
+    <h3 align="center">Sign Up</h3>
+    <!-- form-group is a bootstrap class -->
+    <div class="form-group">
+        <label for="email">Email Address</label>
+        <!--whatever is in the name field will be the name used in the backend 
+        id is optional and hshould match up with the label -->
+        <input 
+            type="email" 
+            class="form-control" 
+            id="email" 
+            name="email" 
+            placeholder="Enter email"
+        />
+    </div>
+    <div class="form-group">
+        <label for="password1">Password</label>
+        <input 
+            type="password" 
+            class="form-control" 
+            id="password1" 
+            name="password1" 
+            placeholder="Enter password"
+        />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 {% endblock %}
