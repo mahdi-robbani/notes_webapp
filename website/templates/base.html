@@ -41,6 +41,34 @@
             </div>
         </nav>
 
+        <!--Display flash messages -->
+        <!-- Create a variable called messages that contains all our messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            {% if category == 'error' %}
+            <!--Create a div that displays a message -->
+            <!--alter-danger: error message, fade: fade in, show: show by default-->
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ message}}
+                <button type ="button" class="close" data-dismiss="alert">
+                    <!--&times; is a fancy x character-->
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% else %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ message}}
+                <button type ="button" class="close" data-dismiss="alert">
+                    <!--&times; is a fancy x character-->
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
         <!-- Use container for some padding -->
         <div class="container"> 
             <!-- Content block-->
