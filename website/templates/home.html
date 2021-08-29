@@ -2,11 +2,12 @@
 {% block title %}Home{% endblock %}
 {% block content %}
 <!-- Display Notes -->
-<h1>Notes</h1>
+<h1 align="center">Notes</h1>
 <ul class="list-group list-group-flush" id="notes">
     <!-- We have access to user data because in views we set user=current_user-->
     {% for note in user.notes %}
-    <li class="list-group-item">{{notes.data}}</li>
+    <li class="list-group-item">{{ note.text }}</li>
+    <!-- TODO: Add timestamp-->
     {% endfor %}
 </ul>
 <!-- Add Notes -->
