@@ -10,4 +10,4 @@ views = Blueprint('views', __name__)
 def home():
     """This function will run when we go to the root directory of the
     website"""
-    return render_template("home.html")
+    return render_template("home.html", user=current_user) # user current user in the home template
