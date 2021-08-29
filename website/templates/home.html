@@ -7,7 +7,13 @@
     <!-- We have access to user data because in views we set user=current_user-->
     {% for note in user.notes %}
     <li class="list-group-item">
+        <!-- Note data -->
         {{ note.text }}
+        <!-- Delete button, calls JS function deleteNote on click -->
+        <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <!-- Timestamp -->
         <div align="right">
             <small>{{ note.date }}</small>
         </div>
