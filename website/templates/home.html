@@ -6,7 +6,12 @@
 <ul class="list-group list-group-flush" id="notes">
     <!-- We have access to user data because in views we set user=current_user-->
     {% for note in user.notes %}
-    <li class="list-group-item">{{ note.text }}</li>
+    <li class="list-group-item">
+        {{ note.text }}
+        <div align="right">
+            <small>{{ note.date }}</small>
+        </div>
+    </li>
     <!-- TODO: Add timestamp-->
     {% endfor %}
 </ul>
