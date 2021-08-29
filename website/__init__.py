@@ -2,6 +2,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import path
+from flask_login import LoginManager, login_manager
 
 # create database
 db = SQLAlchemy()
@@ -29,6 +30,17 @@ def create_app():
     # Classes need to be defined before initializing db
     from .models import User, Note
     create_database(app)
+
+    # Manage logins
+    login_manager = LoginManager()
+    # Set redirect to log in page if user is not logged in
+    login_manager.login_view = "auth.login"
+    login_manager.init_app(app)
+
+    # Use user database id to log in 
+    @login_manager.user_loader
+    def load_user(id):
+        return User.query.get(int(id))
 
     return app    
 
